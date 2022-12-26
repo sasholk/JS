@@ -1,15 +1,19 @@
 "use strict";
 
-let result = '';
-const length = 7;
-
-for (let i = 1; i < length; i++) {
-
-  for (let j = 0; j < i; j++) {
-    result += '*';
-  }
-
-  result += '\n';
+function firstTask() {
+    // Пишем решение вот тут
+    let num = 5;
+    while (num < 11) {
+        console.log(num);
+        num++;
+    }
 }
 
-console.log(result);
+function secondTask() {
+    // Пишем решение вот тут
+    // let num = 20;
+    for (let i = 20; i > 9; i--) {
+      console.log(i);
+    }
+    
+}
