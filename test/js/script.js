@@ -1,34 +1,35 @@
 "use strict";
 
 // Место для первой задачи
-function sayHello(name) {
-  return `Привет, ${name}!`;
+function calculateVolumeAndArea(length) {
+  if (typeof length != "number" || length < 0 || !Number.isInteger(length)) {
+    return "При вычислении произошла ошибка";
+  }
+
+  let volume = 0,
+    area = 0;
+
+  volume = length * length * length;
+  area = 6 * (length * length);
+
+  return `Объем куба: ${volume}, площадь всей поверхности: ${area}`;
 }
 
-sayHello("ALEX");
+calculateVolumeAndArea(5);
 
 // Место для второй задачи
-function returnNeighboringNumbers(num) {
-  return [num - 1, num, num + 1];
-}
-
-returnNeighboringNumbers(5);
-
-// Место для третьей задачи
-function getMathResult(num, times) {
-  if (typeof times !== "number" || times <= 0) {
-    return num;
+function getCoupeNumber() {
+  if (
+    typeof seatNumber !== "number" ||
+    seatNumber < 0 ||
+    !Number.isInteger(seatNumber)
+  ) {
+    return "Ошибка. Проверьте правильность введенного номера места";
   }
 
-  let str = "";
-
-  for (let i = 1; i <= times; i++) {
-    if (i === times) {
-      str += `${num * i}`;
-    } else {
-      str += `${num * i}---`;
-    }
+  if (seatNumber === 0 || seatNumber > 36) {
+    return "Таких мест в вагоне не существует";
   }
-}
 
-getMathResult(10, 5);
+  return Math.ceil(seatNumber / 4);
+}
