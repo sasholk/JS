@@ -49,3 +49,5 @@ function findMaxNumber(a, b, c, d) {
     return Math.max(a, b, c, d);
   }
 }
+
+findMaxNumber(1, 5, 6.6, 10.5);
