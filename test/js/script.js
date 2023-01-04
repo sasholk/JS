@@ -1,53 +1,47 @@
 "use strict";
 
-// Место для первой задачи
-function getTimeFromMinutes(minutesTotal) {
-  if (
-    typeof minutesTotal !== "number" ||
-    minutesTotal < 0 ||
-    !Number.isInteger(minutesTotal)
-  ) {
-    return "Ошибка, проверьте данные";
-  }
+const personalPlanPeter = {
+  name: "Peter",
+  age: "29",
+  skills: {
+    languages: ["ru", "eng"],
+    programmingLangs: {
+      js: "20%",
+      php: "10%",
+    },
+    exp: "1 month",
+  },
+  showAgeAndLangs: function (plan) {
+    const { age } = plan;
+    const { languages } = plan.skills;
+    let str = `Мне ${age} и я владею языками: `;
 
-  const hours = Math.floor(minutesTotal / 60);
-  const minutes = minutesTotal % 60;
+    languages.forEach(function (lang) {
+      str += `${lang.toUpperCase()} `;
+    });
+    console.log(str);
+    return str;
+  },
+};
 
-  let hoursStr = "";
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
 
-  switch (hours) {
-    case 0:
-      hoursStr = "часов";
-      break;
-    case 1:
-      hoursStr = "час";
-      break;
-    case 2:
-    case 3:
-    case 4:
-      hoursStr = "часа";
-      break;
-    default:
-      hoursStr = "часов";
-  }
-
-  return `Это ${hours} ${hoursStr} и ${minutes} минут`;
+function showExperience(plan) {
+  const { exp } = plan.skills;
+  console.log(exp);
+  return exp;
 }
 
-getTimeFromMinutes(180);
+showExperience(personalPlanPeter);
 
-// Место для второй задачи
-function findMaxNumber(a, b, c, d) {
-  if (
-    typeof a !== "number" ||
-    typeof b !== "number" ||
-    typeof c !== "number" ||
-    typeof d !== "number"
-  ) {
-    return 0;
-  } else {
-    return Math.max(a, b, c, d);
+function showProgrammingLangs(plan) {
+  let str = "";
+  const { programmingLangs } = plan.skills;
+  for (let key in programmingLangs) {
+    str += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
   }
+  console.log(str);
+  return str;
 }
 
-findMaxNumber(1, 5, 6.6, 10.5);
+showProgrammingLangs(personalPlanPeter);
